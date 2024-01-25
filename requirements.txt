@@ -1,0 +1,9 @@
+imblearn
+wandb
+pycaret
+dabl
+seaborn==0.13.0
+ipykernel
+termcolor
+flatbuffers
+xgboost==2.0.3
