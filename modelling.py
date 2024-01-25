@@ -52,7 +52,6 @@ xgb_model.fit(X_train, y_train)
 
 precision_scorer = make_scorer(precision_score)
 k_fold = KFold(n_splits=5, shuffle=True, random_state=42)
-# Perform cross-validation and calculate precision score
 precision_scores = cross_val_score(xgb_model, X_train, y_train, cv=k_fold, scoring=precision_scorer)
 
 # Print the precision scores for each fold
@@ -64,7 +63,6 @@ print(f'\nAverage Precision: {precision_scores.mean()}')
 
 # Make predictions on the test data
 y_pred = xgb_model.predict(X_test)
-# Calculate precision on the test data
 precision = precision_score(y_test, y_pred)
 print(f'\nTest data Precision: {precision}')
 
