@@ -78,9 +78,9 @@ save(model, 'models/Baseline_XGB.pkl')
 
 #-----------------------------------------------------------------------------------------------------#
 
-# Here we chose 6 variables that influence the decisions of the model the most and created a model
-# only with the help of data containing these 6 variables
-# See Notebooks/lime.ipynb for more info
+# Here we chose 6 variables that had the beiggest influence on the decisions of the model.
+# Created a model only with the help of data containing these 6 variables since we cant have a lot of inputs during inference.
+# See Notebooks/lime.ipynb for more info.
 
 columns = ['DER_mass_MMC', 'DER_mass_vis', 'DER_mass_transverse_met_lep', 'PRI_tau_pt', 'PRI_met_sumet', 'DER_mass_jet_jet', 'Weight', 'Label']
 df = df[columns]
