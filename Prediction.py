@@ -17,6 +17,9 @@ st.set_page_config(page_title="⚛️Searching for God particle")
 st.title("⚛️ Searching for God particle")
 st.write("A simple web app that predicts whether the given event is a signal or a background event")
 
+def command():
+    print("")
+
 with st.form('input_form'):
 
     # Create two columns
