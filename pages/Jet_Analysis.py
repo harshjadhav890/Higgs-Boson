@@ -7,7 +7,7 @@ import seaborn as sns
 from PIL import Image
 import warnings
 warnings.filterwarnings("ignore")
-df = pd.read_csv('Higgs-Boson/data/training.zip')
+df = pd.read_csv('../data/training.zip')
 
 
 def add_spines(ax, colour = '#2d6383', linewidth = 2, heatmap=False):
@@ -44,7 +44,7 @@ st.write("You can see that the chances of an event being a background event redu
 # st.pyplot(fig)
 
 ## We'll take a static approach instead and load the plot image directly. This will save loading time
-image1 = Image.open("Higgs-Boson/images/jet_bar_chart.png")
+image1 = Image.open("../images/jet_bar_chart.png")
 st.image(image1, caption='Your Image', use_column_width=True)
 
 
@@ -77,6 +77,6 @@ st.write("Some of the variables show an increasing trend as the number of jets i
 # st.pyplot(fig)
 
 ## We'll take a static approach instead and load the plot image directly. This will save loading time
-image2 = Image.open("Higgs-Boson/images/jet_distribution_violin_chart.png")
+image2 = Image.open("../images/jet_distribution_violin_chart.png")
 st.image(image2, caption='Your Image', use_column_width=True)
 
