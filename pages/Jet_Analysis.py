@@ -7,7 +7,7 @@ import seaborn as sns
 from PIL import Image
 import warnings
 warnings.filterwarnings("ignore")
-df = pd.read_csv('E:/vscode/TMLC/Higgs Boson/data/training.zip')
+df = pd.read_csv('E:/vscode/TMLC/Higgs_Boson/data/training.zip')
 
 
 def add_spines(ax, colour = '#2d6383', linewidth = 2, heatmap=False):

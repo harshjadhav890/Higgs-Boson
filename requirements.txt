@@ -1,11 +1,8 @@
-imblearn
-wandb
-pycaret
-dabl
+matplotlib==3.7.1
+numpy==1.23.5
+pandas==1.5.3
+Pillow==10.2.0
+scikit_learn==1.2.2
 seaborn==0.13.2
-ipykernel
-termcolor
-flatbuffers
+streamlit==1.30.0
 xgboost==2.0.3
-streamlit
-lime
