@@ -1,3 +1,9 @@
+# This file contains three important functions: preprocess(), fit_score(), and save()
+# We import these functions to other files for reusability
+# Changes made here would also be reflected in other files 
+# Running this file saves 2 baseline models 
+# -> A full version of the model using all variables in the dataset as well as the inference model trained on 6 variables
+
 import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
@@ -9,14 +15,8 @@ from sklearn.model_selection import KFold, cross_val_score
 from sklearn.metrics import make_scorer, precision_score
 from sklearn.model_selection import train_test_split
 
-# import argparse
-# parser = argparse.ArgumentParser(description='Modelling script')
-
-# parser.add_argument('--model', type=str, default= "ML", help='Choose between ML and DL')
-# parser.add_argument('--path', type=str, default='data/training.zip', help='Add dataset path')
-# args = parser.parse_args()
-
-
+# Changes to the preprocess funciton will cause the data to change
+# This will trigger a workflow that will automatically log data and train and log models
 def preprocess(df):
     label_encoder = LabelEncoder()
     df['Label'] = label_encoder.fit_transform(df['Label'])
@@ -76,9 +76,9 @@ save(model, 'models/Baseline_XGB.pkl')
 
 #-----------------------------------------------------------------------------------------------------#
 
-# Here we chose 6 variables that had the beiggest influence on the decisions of the model.
+# Here we chose 6 variables that had the biggest influence on the decisions of the model.
 # Created a model only with the help of data containing these 6 variables since we cant have a lot of inputs during inference.
-# See Notebooks/lime.ipynb for more info.
+# See Notebooks/lime.ipynb for more info on how we chose the variables.
 
 columns = ['DER_mass_MMC', 'DER_mass_vis', 'DER_mass_transverse_met_lep', 'PRI_tau_pt', 'PRI_met_sumet', 'DER_mass_jet_jet', 'Weight', 'Label']
 df = df[columns]

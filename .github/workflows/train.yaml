@@ -1,4 +1,4 @@
-name: simple-train-example
+name: Simple Train Example
 on: [push]
 jobs:
   run:
