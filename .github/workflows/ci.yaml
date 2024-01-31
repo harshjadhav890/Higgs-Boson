@@ -1,4 +1,4 @@
-name: ci-demo
+name: CI Demo
 run-name: CI Demo
 on: [push]
 jobs:
