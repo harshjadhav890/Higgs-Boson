@@ -1,4 +1,5 @@
-name: Simple Train Example
+name: Simple train 
+run-name: Simple train
 on: [push]
 jobs:
   run:
@@ -15,10 +16,10 @@ jobs:
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Post reports as comments in GitHub PRs
-          cat results.txt >> report.md
-          cml comment create report.md
+      # - name: Write CML report
+      #   env:
+      #     REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   run: |
+      #     # Post reports as comments in GitHub PRs
+      #     cat results.txt >> report.md
+      #     cml comment create report.md
