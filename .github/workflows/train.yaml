@@ -1,4 +1,5 @@
 name: simple-train-example
+run-name: Simple train
 on: [push]
 jobs:
   run:
