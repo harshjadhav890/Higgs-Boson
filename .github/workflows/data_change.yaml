@@ -5,7 +5,7 @@ on:
     paths:
       - 'data/**'
 jobs:
-  train_model:
+  train_model_log_data:
     runs-on: ubuntu-latest
 
     steps:
