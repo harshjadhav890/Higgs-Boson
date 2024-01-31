@@ -1,2 +1,3 @@
 higgsenv/
 notebooks/analysis.ipynb
+.env

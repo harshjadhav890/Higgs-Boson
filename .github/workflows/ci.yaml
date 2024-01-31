@@ -2,7 +2,7 @@ name: ci demo
 run-name: ci demo
 on: [push]
 jobs:
-    my-first-job:
+    sample-job:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
