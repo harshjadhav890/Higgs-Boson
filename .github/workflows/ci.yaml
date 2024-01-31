@@ -1,5 +1,5 @@
-name: ci demo
-run-name: ci demo
+name: ci-demo
+run-name: CI Demo
 on: [push]
 jobs:
     sample-job:
