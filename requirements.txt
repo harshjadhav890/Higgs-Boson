@@ -8,3 +8,4 @@ seaborn==0.13.2
 streamlit==1.30.0
 xgboost==2.0.3
 wandb==0.15.12
+fastparquet==2023.10.1
