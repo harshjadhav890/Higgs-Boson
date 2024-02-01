@@ -15,9 +15,5 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
-          cat results.txt >> report.md
-          cml comment create report.md
-        
-          # Post reports as comments in GitHub PRs
           # cat results.txt >> report.md
           # cml comment create report.md
