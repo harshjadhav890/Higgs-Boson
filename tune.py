@@ -17,7 +17,7 @@ def create_param_file():
     # Define your final model parameters as a dictionary
     params = {
     "eta" : 0.1,
-    "max_depth": 11,
+    "max_depth": 6,
     "nthread" : 4
     }
     # Save the parameters to a JSON file

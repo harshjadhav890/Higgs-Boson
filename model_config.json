@@ -1,5 +1,5 @@
 {
     "eta": 0.1,
-    "max_depth": 11,
+    "max_depth": 6,
     "nthread": 4
 }
