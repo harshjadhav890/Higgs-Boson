@@ -4,9 +4,9 @@ on: [push]
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v4
+      - uses: iterative/setup-cml@v1
       - name: Train model & Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -15,11 +15,9 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
-          echo "## Model Metrics:" > results.md
-          cat results.txt >> results.md
+          cat results.txt >> report.md
+          cml comment create report.md
         
-          
-          
           # Post reports as comments in GitHub PRs
           # cat results.txt >> report.md
           # cml comment create report.md
