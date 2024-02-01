@@ -3,7 +3,7 @@ run-name: Logging freshly tuned model
 on:
   push:
     paths:
-      - 'model/Tuned_model.pkl'
+      - 'model/**'
 jobs:
   train_model_log_data:
     runs-on: ubuntu-latest
