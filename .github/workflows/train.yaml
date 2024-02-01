@@ -5,8 +5,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: iterative/setup-cml@v1
+      - uses: actions/checkout@v3
+      - uses: iterative/setup-cml@v2
       - name: Train model & Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
