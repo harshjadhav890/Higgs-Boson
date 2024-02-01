@@ -1,23 +1,11 @@
+# Pushing changes to the Tuned_model.py file will trigger a workflow to run this file and log the new model
+
 import wandb
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 import os
 from dotenv import load_dotenv
-
-## Preprocessing ------------------------------------------------------------------------#
-
-# def preprocess(df):
-#     label_encoder = LabelEncoder()
-#     df['Label'] = label_encoder.fit_transform(df['Label'])
-#     parquet_filename = 'data/preprocessed_data.parquet'
-#     df.to_parquet(parquet_filename, engine='fastparquet')
-#     X = df.drop(['Label', 'Weight'], axis=1)
-#     y = df['Label']
-#     return X, y
-
-# X, y = preprocess(df)
-
 
 ## Using wandb to log data --------------------------------------------------------------#
 

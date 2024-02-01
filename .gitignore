@@ -1,3 +1,4 @@
 higgsenv/
 notebooks/analysis.ipynb
 .env
+wandb/

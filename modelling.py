@@ -20,6 +20,8 @@ from sklearn.model_selection import train_test_split
 def preprocess(df):
     label_encoder = LabelEncoder()
     df['Label'] = label_encoder.fit_transform(df['Label'])
+    parquet_filename = 'data/preprocessed_data.parquet'
+    df.to_parquet(parquet_filename, engine='fastparquet')
     X = df.drop(['Label', 'Weight'], axis=1)
     y = df['Label']
     return X, y
@@ -48,8 +50,6 @@ def fit_score(X, y, **kwargs):
     
     y_pred = xgb_model.predict(X_test)
     precision = precision_score(y_test, y_pred)
-    # print(f'\nTest data Precision: {precision}')
-    
     precision_class_0 = precision_score(y_test, y_pred, labels=[0], average=None)[0]
     precision_class_1 = precision_score(y_test, y_pred, labels=[1], average=None)[0]
     
