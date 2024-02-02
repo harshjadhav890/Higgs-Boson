@@ -13,5 +13,5 @@ for key, value in metrics.items():
 
 with open("results.txt", 'w') as outfile:
     for key, value in metrics.items():
-        outfile.write(f"{key}:{value:.4f}")
+        outfile.write(f"{key}:{value:.4f}\n")
 
