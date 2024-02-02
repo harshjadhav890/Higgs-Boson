@@ -1,6 +1,9 @@
 name: Simple train 
 run-name: Simple train
 on: [push]
+permissions:
+  issues: write
+  pull-requests: write
 jobs:
   run:
     runs-on: ubuntu-latest
