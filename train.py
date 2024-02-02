@@ -15,5 +15,5 @@ with open("results.txt", 'w') as outfile:
     outfile.write("Model: XGBoost\n")
     outfile.write("Metrics:\n")
     for key, value in metrics.items():
-        outfile.write(f"{key}: {value:.4f}\n")
+        outfile.write(f"\t{key}: {value:.4f}\n")
 
