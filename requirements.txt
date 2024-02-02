@@ -9,3 +9,5 @@ streamlit==1.30.0
 xgboost==2.0.3
 wandb==0.15.12
 fastparquet==2023.10.1
+fastcore==1.5.29
+ghapi==1.0.4
