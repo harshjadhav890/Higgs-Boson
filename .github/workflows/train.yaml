@@ -7,24 +7,16 @@ permissions:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: ghcr.io/iterative/cml:0-dvc2-base1
     steps:
-      - uses: actions/checkout@v4
-        with: 
-          python-version: '3.10.13'
-      - uses: iterative/setup-cml@v1
-      - name: Train model
+      - uses: actions/checkout@v3
+      # - uses: iterative/setup-cml@v2
+      - name: Train model & Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Your ML workflow goes here
           pip install -r requirements.txt
           python train.py
-      - name: Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "## Model Metrics:" > results.md
-          cat results.txt >> results.md
-          
-          # Post reports as comments in GitHub PRs
+
           # cat results.txt >> report.md
           # cml comment create report.md
