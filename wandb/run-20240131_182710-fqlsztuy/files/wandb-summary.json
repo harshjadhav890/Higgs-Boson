@@ -1,1 +1,0 @@
-{"Average Precision": 0.7894178155191989, "Test data Precision": 0.7859327217125383, "Precision of Background event": 0.8659340018656716, "Precision of Signal event": 0.7859327217125383, "_timestamp": 1706705844.0426617, "_runtime": 13.670803785324097, "_step": 0, "_wandb": {"runtime": 12}}

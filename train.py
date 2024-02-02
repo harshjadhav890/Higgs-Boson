@@ -10,3 +10,8 @@ model, metrics = fit_score(X, y)
 
 for key, value in metrics.items():
     print(f"{key}:{value:.4f}")
+
+with open("results.txt", 'w') as outfile:
+    for key, value in metrics.items():
+        outfile.write(f"{key}:{value:.4f}")
+

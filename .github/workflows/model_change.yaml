@@ -5,7 +5,7 @@ on:
     paths:
       - 'models/Tuned_model.pkl'
 jobs:
-  train_model_log_data:
+  Logging-freshly-tuned-model:
     runs-on: ubuntu-latest
 
     steps:
