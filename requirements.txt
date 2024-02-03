@@ -11,3 +11,4 @@ wandb==0.15.12
 fastparquet==2023.10.1
 fastcore==1.5.29
 ghapi==1.0.4
+dvc==3.43.1
