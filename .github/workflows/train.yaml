@@ -1,22 +1,30 @@
-name: Simple train 
-run-name: Simple train
+name: Comment Metrics
+run-name: Comment Metrics
 on: [push]
-permissions:
-  issues: write
-  pull-requests: write
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      # - uses: iterative/setup-cml@v2
-      - name: Train model & Write CML report
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Your ML workflow goes here
-          pip install -r requirements.txt
-          python train.py
 
-          # cat results.txt >> report.md
-          # cml comment create report.md
+# adding permissions to tackle error: 'Resource not accessible by integration'
+permissions:
+    actions: write
+    contents: write
+    id-token: write
+    issues: write
+    pull-requests: write
+    
+jobs:
+    Comment-Metrics:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: iterative/setup-cml@v2
+        - name: Train model & Write CML report
+          env:
+            REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            # Your ML workflow goes here
+            pip install -r requirements.txt
+            python train.py
+            cat results.txt >> report.md
+            cml comment create report.md
+  
+            # cat results.txt >> report.md
+            # cml comment create report.md
