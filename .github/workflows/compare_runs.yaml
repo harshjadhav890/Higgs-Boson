@@ -8,9 +8,17 @@ on:
   discussion_comment:
     types:
       - created
+
+permissions:
+    actions: write
+    contents: write
+    id-token: write
+    issues: write
+    pull-requests: write
+    
 jobs:
   Listen-for-comments:
-    if: (github.event.issue.pull_request != null) && contains(github.event.comment.body, '/wandb')
+    if: contains(github.event.comment.body, '/wandb')
     runs-on: ubuntu-latest
     steps:        
 
