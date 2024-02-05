@@ -45,7 +45,7 @@ jobs:
     - name: Generate the comparison report
       if: steps.get-runid-value.outputs.VAL_FOUND == 'true'
       id: wandb-report
-      run: python ./client/compare_runs.py
+      run: python compare_runs.py
       env:
         WANDB_ENTITY: harsh-ajay-jadhav
         WANDB_PROJECT: harsh-ajay-jadhav
