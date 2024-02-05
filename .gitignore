@@ -3,3 +3,4 @@ notebooks/analysis.ipynb
 .env
 wandb/
 /preprocessed_data.parquet
+results.txt
