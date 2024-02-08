@@ -14,14 +14,14 @@ model, metrics, cm = fit_score(X, y)
 with open('metrics.json', "w") as json_file:
     json.dump(metrics, json_file)
 
-# for key, value in metrics.items():
-#     print(f"{key}:{value:.4f}")
+for key, value in metrics.items():
+    print(f"{key}:{value:.4f}")
 
-# with open("results.txt", 'w') as outfile:
-#     outfile.write("Model: XGBoost\n")
-#     outfile.write("Metrics:\n")
-#     for key, value in metrics.items():
-#         outfile.write(f"\t{key}: {value:.4f}\n")
+with open("results.txt", 'w') as outfile:
+    outfile.write("Model: XGBoost\n")
+    outfile.write("Metrics:\n")
+    for key, value in metrics.items():
+        outfile.write(f"\t{key}: {value:.4f}\n")
 
 plt.figure(figsize=(8, 6))
 sns.set(font_scale=1.2)  # Adjust font scale for better readability
