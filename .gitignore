@@ -4,3 +4,4 @@ notebooks/analysis.ipynb
 wandb/
 /preprocessed_data.parquet
 results.txt
+/metrics.json

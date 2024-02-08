@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  Train:
+    cmd: python train.py
+    deps:
+    - path: train.py
+      hash: md5
+      md5: 9f5aef901308ae1ea135512998c07b53
+      size: 1187
+    outs:
+    - path: images/confusion_matrix.png
+      hash: md5
+      md5: b753f877e4312a45ea26072ab8750fc1
+      size: 32169
+    - path: metrics.json
+      hash: md5
+      md5: e008085ea3a17c740083502ff5175b21
+      size: 186

@@ -1,5 +1,5 @@
 # Tune and save model to models/Tuned_model.pkl
-# Save you parameters to the model_config.json file
+# Saves your parameters to the model_config.json file
 # Making changes to the tuned model will trigger the workflow to run wandb_log_model.py
 
 import json
@@ -29,5 +29,5 @@ df = pd.read_csv('data/training.zip', low_memory=False)
 local_model_path = 'models/Tuned_model.pkl'
 X, y = preprocess(df)
 params = create_param_file()
-model, metrics = fit_score(X, y, **params)
+model, metrics, cm = fit_score(X, y, **params)
 save(model, local_model_path)

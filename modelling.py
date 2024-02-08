@@ -12,7 +12,7 @@ import pickle
 from xgboost import XGBClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import KFold, cross_val_score
-from sklearn.metrics import make_scorer, precision_score
+from sklearn.metrics import make_scorer, precision_score, confusion_matrix
 from sklearn.model_selection import train_test_split
 
 # Changes to the preprocess funciton will cause the data to change
@@ -20,9 +20,9 @@ from sklearn.model_selection import train_test_split
 def preprocess(df):
     label_encoder = LabelEncoder()
     df['Label'] = label_encoder.fit_transform(df['Label'])
-    parquet_filename = 'data/preprocessed_data.parquet'
-    df.to_parquet(parquet_filename, engine='fastparquet')
-    X = df.drop(['Label', 'Weight'], axis=1)
+    # parquet_filename = 'data/preprocessed_data.parquet'
+    # df.to_parquet(parquet_filename, engine='fastparquet')
+    X = df.drop(['Label', 'Weight', 'EventId'], axis=1)
     y = df['Label']
     return X, y
 
@@ -54,8 +54,9 @@ def fit_score(X, y, **kwargs):
     precision_class_1 = precision_score(y_test, y_pred, labels=[1], average=None)[0]
     
     metrics = {'Average Precision': precision_scores.mean(), 'Test data Precision': precision, 'Precision of Background event': precision_class_0,  'Precision of Signal event': precision_class_1}
+    cm = confusion_matrix(y_test, y_pred)
     
-    return xgb_model, metrics
+    return xgb_model, metrics, cm
 
 def save(model, path):
     with open(path, 'wb') as model_file:
@@ -70,9 +71,10 @@ params = {
 
 df = pd.read_csv('data/training.zip', low_memory=False)
 X, y = preprocess(df)
-model, metrics = fit_score(X, y, **params)
+model, metrics, cm = fit_score(X, y, **params)
 print(metrics)
 save(model, 'models/Baseline_XGB.pkl')
+
 
 #-----------------------------------------------------------------------------------------------------#
 
@@ -80,10 +82,11 @@ save(model, 'models/Baseline_XGB.pkl')
 # Created a model only with the help of data containing these 6 variables since we cant have a lot of inputs during inference.
 # See Notebooks/lime.ipynb for more info on how we chose the variables.
 
-columns = ['DER_mass_MMC', 'DER_mass_vis', 'DER_mass_transverse_met_lep', 'PRI_tau_pt', 'PRI_met_sumet', 'DER_mass_jet_jet', 'Weight', 'Label']
-df = df[columns]
-X, y = preprocess(df)
-infer_model = fit_score(X, y)
+
+columns = ['DER_mass_MMC', 'DER_mass_vis', 'DER_mass_transverse_met_lep', 'PRI_tau_pt', 'PRI_met_sumet', 'DER_mass_jet_jet']
+X= X[columns]
+infer_model, metrics, cm = fit_score(X, y)
+type(infer_model)
 save(infer_model, 'models/Base_infer_XGB.pkl')
 
 

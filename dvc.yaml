@@ -1,0 +1,9 @@
+stages:
+  Train:
+    cmd: python train.py
+    deps: 
+    - train.py
+    outs:
+    - images/confusion_matrix.png
+    metrics:
+    - metrics.json

@@ -48,7 +48,7 @@ def main():
     # Train and save the model locally
     local_model_path = 'models/Tuned_model.pkl'
     X, y = preprocess(df)
-    model, metrics = fit_score(X, y, **params)
+    model, metrics, cm = fit_score(X, y, **params)
     log_model('tuned_model', local_model_path, params = params, metrics=metrics)
 
 
