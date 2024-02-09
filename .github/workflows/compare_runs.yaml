@@ -1,3 +1,5 @@
+# returns a link to wandb report comparing runs 
+# comment '/wandb run-id' to trigger
 name: Compare runs on comment
 run-name: Compare runs on comment
 on:
